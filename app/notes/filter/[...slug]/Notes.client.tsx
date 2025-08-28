@@ -1,24 +1,28 @@
 'use client';
-import css from '../notes/Notes.module.css';
-import NoteList from '../../components/NoteList/NoteList';
-import { fetchNotes } from '../../lib/api';
+import css from './Notes.module.css';
+import NoteList from '../../../../components/NoteList/NoteList';
+import { fetchNotes } from '../../../../lib/api';
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import Pagination from '../../components/Pagination/Pagination';
-import Modal from '../../components/Modal/Modal';
-import NoteForm from '../../components/NoteForm/NoteForm';
+import Pagination from '../../../../components/Pagination/Pagination';
+import Modal from '../../../../components/Modal/Modal';
+import NoteForm from '../../../../components/NoteForm/NoteForm';
 import { useDebouncedCallback } from 'use-debounce';
-import SearchBox from '../../components/SearchBox/SearchBox';
+import SearchBox from '../../../../components/SearchBox/SearchBox';
 import Loading from '@/components/Loading/Loading';
 
-const NotesClient = () => {
+interface NotesClientProp {
+  status: string;
+}
+
+const NotesClient = ({ status }: NotesClientProp) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [search, setSearch] = useState('');
 
   const { data, isLoading } = useQuery({
-    queryKey: ['notes', currentPage, search],
-    queryFn: () => fetchNotes({ page: currentPage, search }),
+    queryKey: ['notes', currentPage, search, status],
+    queryFn: () => fetchNotes({ page: currentPage, search, status }),
     placeholderData: keepPreviousData,
   });
 
