@@ -4,7 +4,7 @@ import { useState } from 'react';
 import css from './TagsMenu.module.css';
 import Link from 'next/link';
 
-const statusList: string[] = [
+const tagsList: string[] = [
   'All',
   'Todo',
   'Work',
@@ -24,9 +24,13 @@ const TagsMenu = () => {
       </button>
       {isOpen && (
         <ul className={css.menuList}>
-          {statusList.map((note) => (
+          {tagsList.map((note) => (
             <li className={css.menuItem} key={note}>
-              <Link onClick={toggle} href={`/notes/filter/${note}`}>
+              <Link
+                className={css.menuLink}
+                onClick={toggle}
+                href={`/notes/filter/${note}`}
+              >
                 {note}
               </Link>
             </li>

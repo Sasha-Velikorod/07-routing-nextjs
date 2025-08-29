@@ -12,17 +12,17 @@ import SearchBox from '../../../../components/SearchBox/SearchBox';
 import Loading from '@/components/Loading/Loading';
 
 interface NotesClientProp {
-  status: string;
+  tag: string;
 }
 
-const NotesClient = ({ status }: NotesClientProp) => {
+const NotesClient = ({ tag }: NotesClientProp) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [search, setSearch] = useState('');
 
   const { data, isLoading } = useQuery({
-    queryKey: ['notes', currentPage, search, status],
-    queryFn: () => fetchNotes({ page: currentPage, search, status }),
+    queryKey: ['notes', currentPage, search, tag],
+    queryFn: () => fetchNotes({ page: currentPage, search, tag }),
     placeholderData: keepPreviousData,
   });
 
