@@ -4,14 +4,13 @@
   margin: 0px auto;
   padding: 0 16px 16px;
 }
-
 .toolbar {
   margin-bottom: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px 0;
-  background: #d0cfce;
+  background-color: #f8f9fa;
   border-bottom: 1px solid #dee2e6;
 }
 
@@ -19,7 +18,7 @@
   padding: 6px 12px;
   font-size: 16px;
   color: #fff;
-  background-color: #4b4747;
+  background-color: #0d6efd;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -27,5 +26,14 @@
 }
 
 .button:hover {
-  background-color: #393939;
+  background-color: #0b5ed7;
+}
+.loading {
+  text-align: center;
+  border: 1px solid aquamarine;
+  background-color: #def8ef;
+  max-width: 500px;
+  margin: 0 auto;
+  height: 2rem;
+  padding: 7px 16px;
 }

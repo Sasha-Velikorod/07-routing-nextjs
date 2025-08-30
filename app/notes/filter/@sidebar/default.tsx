@@ -13,10 +13,10 @@ const tagsList: string[] = [
 const SidebarNotes = () => {
   return (
     <ul className={css.menuList}>
-      {tagsList.map((note) => (
-        <li className={css.menuItem} key={note}>
-          <Link href={`/notes/filter/${note}`} className={css.menuLink}>
-            {note}
+      {tagsList.map((tag) => (
+        <li className={css.menuItem} key={tag}>
+          <Link href={`/notes/filter/${tag}`} className={css.menuLink}>
+            {tag}
           </Link>
         </li>
       ))}

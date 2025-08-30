@@ -18,13 +18,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body suppressHydrationWarning={true}>
         <TanStackProvider>
           <Header />
           {children}
           {modal}
           <Footer />
         </TanStackProvider>
+        <div id="modal-root"></div>
       </body>
     </html>
   );

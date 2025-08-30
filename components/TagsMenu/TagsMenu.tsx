@@ -24,14 +24,14 @@ const TagsMenu = () => {
       </button>
       {isOpen && (
         <ul className={css.menuList}>
-          {tagsList.map((note) => (
-            <li className={css.menuItem} key={note}>
+          {tagsList.map((tag) => (
+            <li className={css.menuItem} key={tag}>
               <Link
                 className={css.menuLink}
                 onClick={toggle}
-                href={`/notes/filter/${note}`}
+                href={`/notes/filter/${tag}`}
               >
-                {note}
+                {tag}
               </Link>
             </li>
           ))}
