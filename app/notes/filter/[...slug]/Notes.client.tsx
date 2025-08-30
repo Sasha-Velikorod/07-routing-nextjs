@@ -12,7 +12,7 @@ import SearchBox from '../../../../components/SearchBox/SearchBox';
 import Loading from '@/components/Loading/Loading';
 
 interface NotesClientProp {
-  tag: string;
+  tag?: string;
 }
 
 const NotesClient = ({ tag }: NotesClientProp) => {
@@ -22,7 +22,8 @@ const NotesClient = ({ tag }: NotesClientProp) => {
 
   const { data, isLoading } = useQuery({
     queryKey: ['notes', currentPage, search, tag],
-    queryFn: () => fetchNotes({ page: currentPage, search, tag }),
+    queryFn: () =>
+      fetchNotes({ page: currentPage, search, tag: tag || undefined }),
     placeholderData: keepPreviousData,
   });
 
